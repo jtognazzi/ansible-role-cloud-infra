@@ -103,7 +103,7 @@
   local_action:
     module: cs_volume
     vm: "{{ cs_instance_name }}"
-    name: "{{ item.1.name | default('DATA-' + cs_instance_name + '-' + item.0|string) }}"
+    name: "{{ item.1.name | default(inventory_dir|basename + '-' + inventory_hostname + '-' + 'DATA-' + item.0|string) }}"
     disk_offering: "{{ item.1.disk_offering }}"
     size: "{{ item.1.size }}"
     project: "{{ cs_project }}"
